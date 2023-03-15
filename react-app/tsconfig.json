@@ -19,6 +19,11 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./src",
   },
-  "include": ["./src/**/*", ".eslintrc.cjs", "styled.d.ts"],
+  "include": [
+    "./src/**/*", 
+    ".eslintrc.cjs", 
+    "vite.config.ts", 
+    "styled.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

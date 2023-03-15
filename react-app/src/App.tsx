@@ -1,8 +1,8 @@
 function App() {
   return (
-    <div className="App">
-      Hello Rs school!!!
-    </div>
+    <h1 className="App">
+      Hello RsSchool
+    </h1>
   )
 }
 
