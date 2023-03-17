@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d5f37c;
+    padding: 15px;
+    &__logo {
+        width: 200px;
+        img {
+            width: 100%;
+        }
+    }
+    &__menu {
+        width: 500px;
+        &-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            &_item {
+                margin: 0 25px;
+                a {
+                    text-decoration: none;
+                    font-size: 24px;
+                    color: #000000;
+                }
+            }
+        }
+    }
+    &__search {
+        width: 500px;
+    }
+}
