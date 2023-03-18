@@ -1,5 +1,6 @@
-export const productsData = {
-    products: [
+import { IProd } from "types/type";
+
+export const productsData: IProd[] = [
         {
             id: 1,
             title: 'iPhone 9',
@@ -369,8 +370,4 @@ export const productsData = {
                 'https://i.dummyjson.com/data/products/20/thumbnail.jpg',
             ],
         }
-    ],
-    total: 100,
-    skip: 0,
-    limit: 100,
-};
+    ];
