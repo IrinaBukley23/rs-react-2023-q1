@@ -20,7 +20,6 @@ class Home extends Component<IProps, IState> {
     
     render () {
         const { prods } = this.state;
-        console.log(prods)
         return (
             <>
                 <h2 className="title">Home page</h2>;
