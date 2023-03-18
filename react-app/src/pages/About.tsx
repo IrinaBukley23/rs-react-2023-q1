@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import './pages.scss';
+import './page.scss';
 
 class About extends Component  {
 

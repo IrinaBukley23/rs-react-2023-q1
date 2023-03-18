@@ -11,3 +11,7 @@ export interface IProd {
     thumbnail: string;
     images: string[];
 }
+
+export interface ISearch {
+    searchValue: string;
+}

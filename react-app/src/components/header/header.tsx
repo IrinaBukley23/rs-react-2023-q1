@@ -1,12 +1,18 @@
 import Input from '../input/input';
-import { Component } from 'react';
+import { Component, RefObject, createRef } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg';
 
 import './header.scss';
+import { ISearch } from 'types/type';
 
-class Header extends Component {
+interface IProps {
+    search: ISearch;
+}
+
+class Header extends Component<IProps> {
     render() {
+        const { search } = this.props;
         return (
             <header className='header'>
                 <div className='header__logo'>
@@ -23,7 +29,7 @@ class Header extends Component {
                     </ul>
                 </nav>
                 <div className='header__search'>
-                    <Input />
+                    <Input search={search} />
                 </div>
             </header>
         )
