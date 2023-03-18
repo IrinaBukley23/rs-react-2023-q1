@@ -4,7 +4,7 @@ function NotFound() {
     return (
         <>
             <h2>Page not found</h2>
-            <Link to="/home">GO HOME</Link>
+            <Link to="/">GO HOME</Link>
         </>
     );
 }
