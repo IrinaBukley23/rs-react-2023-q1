@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.05% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/37</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.05% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/37</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,25 +113,25 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -148,26 +148,26 @@ interface IState {
 }
 &nbsp;
 class Home extends Component&lt;IProps, IState&gt; {
-<span class="fstat-no" title="function not covered" >    constructor (props: IProps) {</span>
-<span class="cstat-no" title="statement not covered" >        super(props);</span>
-<span class="cstat-no" title="statement not covered" >        this.state = {</span>
-<span class="cstat-no" title="statement not covered" >            prods: productsData</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    constructor (props: IProps) {
+        super(props);
+        this.state = {
+            prods: productsData
+        }
+    }
     
-<span class="fstat-no" title="function not covered" >    render () {</span>
-<span class="cstat-no" title="statement not covered" >        const { prods } = this.state;</span>
-<span class="cstat-no" title="statement not covered" >        return (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;h2 className="title"&gt;Home page&lt;/h2&gt;;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;div className="container"&gt;</span>
-<span class="cstat-no" title="statement not covered" >                    {prods.map((prod: IProd, i) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                        return &lt;Card prodItem={prod} key={i} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >                    })}</span>
-<span class="cstat-no" title="statement not covered" >                &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/&gt;</span>
-<span class="cstat-no" title="statement not covered" >        )</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    render () {
+        const { prods } = this.state;
+        return (
+            &lt;&gt;
+                &lt;h2 className="title"&gt;Home page&lt;/h2&gt;;
+                &lt;div className="container"&gt;
+                    {prods.map((prod: IProd, i) =&gt; {
+                        return &lt;Card prodItem={prod} key={i} /&gt;
+                    })}
+                &lt;/div&gt;
+            &lt;/&gt;
+        )
+    }
 }
     
 &nbsp;
@@ -178,7 +178,7 @@ export default Home;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-18T08:45:59.129Z
+                at 2023-03-18T10:19:22.225Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

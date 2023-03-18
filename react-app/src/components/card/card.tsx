@@ -11,7 +11,7 @@ class Card extends Component<IProps> {
     render() {
         const { prodItem } = this.props;
         return (
-            <div className="card">
+            <div className="card" id={String(prodItem.id)}>
                 <h5 className="card__title">{prodItem.title}</h5>
                 <div className="card__wrapper">
                     <div className="card__image">

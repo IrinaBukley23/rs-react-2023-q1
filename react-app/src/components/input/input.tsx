@@ -28,16 +28,20 @@ class Input extends Component<IProps> {
         this.setState({
             shouldShowElem: false,
         })
-        if(localStorage.getItem('search')) {
-            this.setState({
-                search: localStorage.getItem('search')
-            })
-        }
+        this.getSearch();
     }
 
     componentWillUnmount(): void {
         if(this.refSearch.current?.value) {
             localStorage.setItem('search', this.refSearch.current?.value)
+        }
+    }
+
+    getSearch = () => {
+        if(localStorage.getItem('search')) {
+            this.setState({
+                search: localStorage.getItem('search')
+            })
         }
     }
 
