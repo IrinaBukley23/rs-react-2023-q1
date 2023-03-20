@@ -4,18 +4,16 @@ import searchIcon from '../../assets/search.png';
 
 import './input.scss';
 
-interface IProps {
+interface IProps {}
+interface IState {
     search: ISearch;
     shouldShowElem?: boolean;
 }
 
-class Input extends Component<IProps> {
-    refSearch: RefObject<HTMLInputElement>;
-    state: IProps;
+class Input extends Component<IProps, IState> {
 
-    constructor(props: IProps) {
+    constructor(props: IState) {
         super(props);
-        this.refSearch = createRef();
         this.state = {
             search: {
                 searchValue: ''
@@ -27,52 +25,56 @@ class Input extends Component<IProps> {
     componentDidMount(): void {
         this.setState({
             shouldShowElem: false,
+            search: {
+                searchValue: localStorage.getItem('search') || ''
+            }
         })
-        this.getSearch();
     }
 
     componentWillUnmount(): void {
-        if(this.refSearch.current?.value) {
-            localStorage.setItem('search', this.refSearch.current?.value)
-        }
-    }
-
-    getSearch = () => {
-        if(localStorage.getItem('search')) {
-            this.setState({
-                search: localStorage.getItem('search')
-            })
-        }
+        localStorage.setItem('search', this.state.search.searchValue)
     }
 
     handleClick = () => {
         this.setState({
-            search: this.refSearch.current?.value,
             shouldShowElem: true,
         })
     }
 
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({ 
+            search: {
+                searchValue: e.target.value
+            }
+         });
+    }
+
     handleClear = () => {
-        if(this.refSearch.current?.value) this.refSearch.current.value = '';
         this.setState({
-            search: '',
+            search: {
+                searchValue: ''
+            },
             shouldShowElem: false,
         })
     }
 
     render() {
-        const { shouldShowElem } = this.state;
+        const { shouldShowElem, search } = this.state;
         return (
             <>
             <div className='search'>
-                <input ref={this.refSearch} type="text" placeholder='Enter your text' />
+                <input 
+                    onChange={this.handleChange} 
+                    type="text" 
+                    placeholder='Enter your text'
+                />
                 {shouldShowElem ? (<button className='search__clear' onClick={this.handleClear}>X</button>) : (
                     <div className='search__img' onClick={this.handleClick}>
                         <img src={searchIcon} alt="search" />
                     </div>
                 )}
             </div>
-            {shouldShowElem ? <div className='search__message'>You are entered - {this.refSearch.current?.value} </div> : null}
+            {shouldShowElem ? <div className='search__message'>You are entered - {search.searchValue} </div> : null}
             </>
         )
     }

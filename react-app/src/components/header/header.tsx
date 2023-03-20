@@ -6,13 +6,8 @@ import logo from '../../assets/logo.svg';
 import './header.scss';
 import { ISearch } from 'types/type';
 
-interface IProps {
-    search: ISearch;
-}
-
-class Header extends Component{
+class Header extends Component {
     render() {
-       // const { search } = this.props;
         return (
             <header className='header'>
                 <div className='header__logo'>
@@ -29,7 +24,7 @@ class Header extends Component{
                     </ul>
                 </nav>
                 <div className='header__search'>
-                    {/* <Input search={search} /> */}
+                    <Input />
                 </div>
             </header>
         )
