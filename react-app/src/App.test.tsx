@@ -6,27 +6,21 @@ import { App } from './App';
 
 describe('App', () => {
     it('renders Home page', () => {
-        // ARRANGE
         render(
-            <MemoryRouter initialEntries={['/home']}>
+            <MemoryRouter initialEntries={['/']}>
                 <App />
             </MemoryRouter>
         );
-        // ACT
-        // EXPECT
         expect(screen.getByRole('heading', {
             level: 2
         })).toHaveTextContent('Home page');
     });
-    it('renders Home page', () => {
-        // ARRANGE
+    it('renders About us page', () => {
         render(
             <MemoryRouter initialEntries={['/about']}>
                 <App />
             </MemoryRouter>
         );
-        // ACT
-        // EXPECT
         expect(screen.getByRole('heading', {
             level: 2
         })).toHaveTextContent('About us page');

@@ -22,7 +22,7 @@ class Home extends Component<IProps, IState> {
         const { prods } = this.state;
         return (
             <>
-                <h2 className="title">Home page</h2>;
+                <h2 className="title">Home page</h2>
                 <div className="container">
                     {prods.map((prod: IProd, i) => {
                         return <Card prodItem={prod} key={i} />

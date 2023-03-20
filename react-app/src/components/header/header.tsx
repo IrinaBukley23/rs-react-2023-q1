@@ -10,9 +10,9 @@ interface IProps {
     search: ISearch;
 }
 
-class Header extends Component<IProps> {
+class Header extends Component{
     render() {
-        const { search } = this.props;
+       // const { search } = this.props;
         return (
             <header className='header'>
                 <div className='header__logo'>
@@ -21,7 +21,7 @@ class Header extends Component<IProps> {
                 <nav className='header__menu'>
                     <ul className='header__menu-list'>
                         <li className='header__menu-list_item'>
-                           <Link to="/home">Home</Link> 
+                           <Link to="/">Home</Link> 
                         </li>
                         <li className='header__menu-list_item'>
                             <Link to="/about">About Us</Link> 
@@ -29,7 +29,7 @@ class Header extends Component<IProps> {
                     </ul>
                 </nav>
                 <div className='header__search'>
-                    <Input search={search} />
+                    {/* <Input search={search} /> */}
                 </div>
             </header>
         )

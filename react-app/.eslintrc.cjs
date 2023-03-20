@@ -25,7 +25,6 @@ module.exports = {
           },
         "ecmaVersion": "latest",
         "sourceType": "module",
-      //  "project": "./tsconfig.json"
     },
     "plugins": [
         "react",
@@ -33,13 +32,13 @@ module.exports = {
         "prettier"
     ],
     "rules": {
-        // "react-hooks/rules-of-hooks": "error",
-        // "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
         "comma-dangle": ["error", "only-multiline"],
         "react/prop-types": "off",
         "react/display-name": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
-        // "prettier/prettier": ["error", { "endOfLine": "auto" }],
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/ban-ts-comment": "error",
         "@typescript-eslint/no-non-null-assertion": "off",

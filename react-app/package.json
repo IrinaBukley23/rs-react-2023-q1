@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest --coverage",
+    "lint": "eslint ./src --ext .ts,.tsx"
   },
   "dependencies": {
     "react": "^18.2.0",
