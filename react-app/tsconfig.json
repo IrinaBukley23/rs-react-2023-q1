@@ -21,7 +21,7 @@
   },
   "include": [
     "./src/**/*", 
-    ".eslintrc.cjs", 
+    ".eslintrc.json", 
     "vite.config.ts", 
     "styled.d.ts"
   ],

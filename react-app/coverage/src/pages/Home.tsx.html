@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.05% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/37</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.05% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/37</span>
+                <span class='fraction'>37/37</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,7 +99,8 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -113,72 +114,74 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Component } from "react";
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component } from "react";
 import { IProd } from "../types/type";
 import Card from "../components/card/card";
 &nbsp;
-import './page.scss';
-import { productsData } from "../constants/mochData";
+import "./page.scss";
+import productsData from "../constants/mochData";
 &nbsp;
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface IProps {}
 interface IState {
-    prods: Array&lt;IProd&gt;
+  prods: Array&lt;IProd&gt;;
 }
 &nbsp;
 class Home extends Component&lt;IProps, IState&gt; {
-<span class="fstat-no" title="function not covered" >    constructor (props: IProps) {</span>
-<span class="cstat-no" title="statement not covered" >        super(props);</span>
-<span class="cstat-no" title="statement not covered" >        this.state = {</span>
-<span class="cstat-no" title="statement not covered" >            prods: productsData</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-    
-<span class="fstat-no" title="function not covered" >    render () {</span>
-<span class="cstat-no" title="statement not covered" >        const { prods } = this.state;</span>
-<span class="cstat-no" title="statement not covered" >        return (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;h2 className="title"&gt;Home page&lt;/h2&gt;;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;div className="container"&gt;</span>
-<span class="cstat-no" title="statement not covered" >                    {prods.map((prod: IProd, i) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                        return &lt;Card prodItem={prod} key={i} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >                    })}</span>
-<span class="cstat-no" title="statement not covered" >                &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/&gt;</span>
-<span class="cstat-no" title="statement not covered" >        )</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-}
-    
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      prods: productsData,
+    };
+  }
 &nbsp;
-export default Home;</pre></td></tr></table></pre>
+  render() {
+    const { prods } = this.state;
+    return (
+      &lt;&gt;
+        &lt;h2 className="title"&gt;Home page&lt;/h2&gt;
+        &lt;div className="container"&gt;
+          {prods.map((prod: IProd) =&gt; {
+            return &lt;Card prodItem={prod} key={prod.id} /&gt;;
+          })}
+        &lt;/div&gt;
+      &lt;/&gt;
+    );
+  }
+}
+&nbsp;
+export default Home;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-20T12:05:43.908Z
+                at 2023-03-20T17:33:58.614Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

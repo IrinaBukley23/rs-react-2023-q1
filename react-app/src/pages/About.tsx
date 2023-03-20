@@ -1,16 +1,14 @@
-import { Component } from "react";
+import React from "react";
+import "./page.scss";
 
-import './page.scss';
-
-class About extends Component  {
-
-    render() {
-        return (
-            <div className="about__wrapper">
-                <h2 className="title">About us page</h2>
-            </div>
-        )
-    }
+class About extends React.PureComponent {
+  render() {
+    return (
+      <div className="about__wrapper">
+        <h2 className="title">About us page</h2>
+      </div>
+    );
+  }
 }
 
 export default About;

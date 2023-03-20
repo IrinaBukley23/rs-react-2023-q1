@@ -1,9 +1,9 @@
-module.exports = {
+{
     "env": {
         "browser": true,
         "es2021": true,
         "node": true,
-        "jest": true,
+        "jest": true
     },
     "root": true,
     "extends": [
@@ -14,7 +14,8 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "prettier",
         "plugin:react-hooks/recommended",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "react-app"
     ],
     "overrides": [
     ],
@@ -25,6 +26,7 @@ module.exports = {
           },
         "ecmaVersion": "latest",
         "sourceType": "module",
+        "project": "tsconfig.json"
     },
     "plugins": [
         "react",
