@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import "./header.scss";
 import logo from "../../assets/logo.svg";
-import Input from "../input/input";
 
 class Header extends React.PureComponent {
   render() {
@@ -22,9 +21,6 @@ class Header extends React.PureComponent {
             </li>
           </ul>
         </nav>
-        <div className="header__search">
-          <Input />
-        </div>
       </header>
     );
   }
