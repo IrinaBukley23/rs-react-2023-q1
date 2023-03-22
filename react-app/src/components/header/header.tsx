@@ -16,7 +16,7 @@ class Header extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      pageName: "",
+      pageName: "Home page",
     };
   }
 
@@ -44,6 +44,9 @@ class Header extends React.PureComponent<IProps, IState> {
             </li>
             <li className="header__menu-list_item" onClick={this.getPath}>
               <Link to="/about">About Us</Link>
+            </li>
+            <li className="header__menu-list_item" onClick={this.getPath}>
+              <Link to="/form">Form</Link>
             </li>
           </ul>
         </nav>
