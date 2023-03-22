@@ -16,7 +16,7 @@ class Header extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      pageName: "Home page",
+      pageName: "",
     };
   }
 

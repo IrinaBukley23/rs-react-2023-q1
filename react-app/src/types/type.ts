@@ -15,3 +15,9 @@ export interface IProd {
 export interface ISearch {
   searchValue: string;
 }
+
+export interface ICountry {
+  id: string;
+  value: string;
+  title: string;
+}
