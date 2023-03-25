@@ -115,13 +115,12 @@ class MyForm extends React.Component<IProps> {
     this.setState({
       errors,
     });
-    console.log(errors);
   }
 
   render() {
     const { shouldShowElem, errors } = this.state;
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit} name="user">
         <FormInput
           reference={this.fields.refName}
           type="text"
