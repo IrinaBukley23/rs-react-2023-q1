@@ -16,10 +16,20 @@
     height: auto;
 }
 .about {
+    height: 100vh;
+    margin: 0 auto;
+    max-width: 1400px;
     &__wrapper {
-        height: 100vh;
-        margin: 0 auto;
-        max-width: 1400px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__aside {
+        margin-right: 50px;
+    }
+    &__content {
+        width: 75%;
+        display: flex;
+        flex-wrap: wrap;
     }
 }
 .search {

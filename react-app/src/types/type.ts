@@ -21,3 +21,15 @@ export interface ICountry {
   value: string;
   title: string;
 }
+
+export interface IFormData {
+  name: string;
+  birth: string;
+  country: string;
+  profile?: string;
+  male: boolean;
+  female: boolean;
+  agree?: boolean;
+}
+
+export type IUserData = Omit<IFormData, "agree">;

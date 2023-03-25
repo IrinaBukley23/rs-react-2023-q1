@@ -1,5 +1,6 @@
 .form {
     max-width: 400px;
+    min-width: 320px;
     padding: 20px;
     border-radius: 10px;
     background: #822020;
@@ -48,6 +49,7 @@
     }
     &__file {
         background: none;
+        margin-bottom: 15px;
         label {
             font-size: 1.25em;
             font-weight: 700;
@@ -65,6 +67,15 @@
                 position: absolute;
                 z-index: -1;
             }
+        }
+    }
+    &__message {
+        text-align: center;
+        font-size: 28px;
+        background: none;
+        div{
+            background: none;
+            color: aquamarine;
         }
     }
 }
