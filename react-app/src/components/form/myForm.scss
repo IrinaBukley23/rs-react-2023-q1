@@ -3,7 +3,7 @@
     min-width: 320px;
     padding: 20px;
     border-radius: 10px;
-    background: #822020;
+    background: #612828;
     box-shadow: 6px 6px 2px rgb(0,0,0,0.4);
     &__checkbox {
         display: flex;
@@ -78,4 +78,9 @@
             color: aquamarine;
         }
     }
+}
+.error {
+    color: red;
+    background: none;
+    text-align: center;
 }

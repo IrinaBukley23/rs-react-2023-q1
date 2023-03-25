@@ -9,12 +9,12 @@ interface IProps {
   className?: string;
   style?: unknown;
   reference?: React.RefObject<HTMLInputElement>;
-  onChange?: () => void;
+  onFocus: () => void;
 }
 
 class FormInput extends React.PureComponent<IProps> {
   render() {
-    const { labelText, type, value, name, reference } = this.props;
+    const { labelText, type, value, name, reference, onFocus } = this.props;
     return (
       // eslint-disable-next-line jsx-a11y/label-has-associated-control
       <label className="label">
@@ -25,7 +25,7 @@ class FormInput extends React.PureComponent<IProps> {
           type={type}
           value={value}
           name={name}
-          required
+          onFocus={onFocus}
         />
       </label>
     );

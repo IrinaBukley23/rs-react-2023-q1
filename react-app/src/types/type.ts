@@ -23,6 +23,7 @@ export interface ICountry {
 }
 
 export interface IFormData {
+  id: string;
   name: string;
   birth: string;
   country: string;

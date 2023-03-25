@@ -5,15 +5,16 @@ import "./formSelect.scss";
 
 interface IProps {
   reference: RefObject<HTMLSelectElement>;
+  onFocus: () => void;
 }
 
 class FormSelect extends React.PureComponent<IProps> {
   render() {
-    const { reference } = this.props;
+    const { reference, onFocus } = this.props;
     return (
       <>
         <span>Select your country</span>
-        <select ref={reference} className="select" required>
+        <select ref={reference} className="select" onFocus={onFocus}>
           {countries.map((country: ICountry) => {
             return (
               <option key={country.id} value={country.value}>
