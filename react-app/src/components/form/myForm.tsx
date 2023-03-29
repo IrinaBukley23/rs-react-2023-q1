@@ -88,7 +88,7 @@ class MyForm extends React.Component<IProps> {
 
   handleSubmit = (e: FormEvent) => {
     const item: IUserData = {
-      id: uuidv4(),
+      id: String(Date.now()).slice(),
       profile: this.fields.refProfile.current?.value || "",
       name: this.fields.refName.current?.value || "",
       birth: this.fields.refBirth.current?.value || "",
