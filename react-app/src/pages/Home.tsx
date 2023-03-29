@@ -5,7 +5,6 @@ import Input from "../components/input/input";
 import "./page.scss";
 import productsData from "../constants/mochData";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface IProps {}
 interface IState {
   prods: Array<IProd>;
