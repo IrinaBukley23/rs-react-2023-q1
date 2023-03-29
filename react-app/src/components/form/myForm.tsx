@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { createRef, FormEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { IUserData } from "types/type";
@@ -35,7 +34,6 @@ interface Errors {
 }
 
 class MyForm extends React.Component<IProps> {
-  // eslint-disable-next-line react/state-in-constructor
   state: IState;
 
   fields: Fields;
