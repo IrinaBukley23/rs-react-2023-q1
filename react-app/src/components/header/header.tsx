@@ -1,12 +1,9 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from "react";
 import { Link } from "react-router-dom";
 
 import "./header.scss";
 import logo from "../../assets/logo.svg";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface IProps {}
 interface IState {
   pageName: string;
@@ -39,14 +36,20 @@ class Header extends React.PureComponent<IProps, IState> {
         </div>
         <nav className="header__menu">
           <ul className="header__menu-list">
-            <li className="header__menu-list_item" onClick={this.getPath}>
-              <Link to="/">Home</Link>
+            <li className="header__menu-list_item">
+              <Link onKeyDown={this.getPath} onClick={this.getPath} to="/">
+                Home
+              </Link>
             </li>
-            <li className="header__menu-list_item" onClick={this.getPath}>
-              <Link to="/about">About Us</Link>
+            <li className="header__menu-list_item">
+              <Link onKeyDown={this.getPath} onClick={this.getPath} to="/about">
+                About Us
+              </Link>
             </li>
-            <li className="header__menu-list_item" onClick={this.getPath}>
-              <Link to="/form">Form</Link>
+            <li className="header__menu-list_item">
+              <Link onKeyDown={this.getPath} onClick={this.getPath} to="/form">
+                Form
+              </Link>
             </li>
           </ul>
         </nav>
