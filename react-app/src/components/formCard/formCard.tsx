@@ -25,6 +25,9 @@ class FormCard extends React.PureComponent<IProps> {
             User sex:
             <span>{user.male ? " male" : " female"}</span>
           </li>
+          <li>
+            User file: <span>{user.profile}</span>
+          </li>
         </ul>
       </div>
     );
