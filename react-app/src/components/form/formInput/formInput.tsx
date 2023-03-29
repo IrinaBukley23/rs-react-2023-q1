@@ -16,7 +16,6 @@ class FormInput extends React.PureComponent<IProps> {
   render() {
     const { labelText, type, value, name, reference, onFocus } = this.props;
     return (
-      // eslint-disable-next-line jsx-a11y/label-has-associated-control
       <label className="label">
         {labelText}
         <input
