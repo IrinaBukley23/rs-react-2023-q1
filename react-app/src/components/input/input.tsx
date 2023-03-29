@@ -4,7 +4,6 @@ import searchIcon from "../../assets/search.png";
 
 import "./input.scss";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface IProps {}
 interface IState {
   search: ISearch;
