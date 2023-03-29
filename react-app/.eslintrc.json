@@ -49,7 +49,20 @@
         "@typescript-eslint/no-explicit-any": "error",
         "@typescript-eslint/no-var-reqiures": "off",
         "react/jsx-uses-react": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "react/state-in-constructor": 0,
+        "jsx-a11y/label-has-associated-control": [ "error", {
+            "required": {
+              "some": [ "nesting", "id"  ]
+            }
+          }],
+        "jsx-a11y/label-has-for": [ "error", {
+        "required": {
+            "some": [ "nesting", "id"  ]
+        }
+        }],
+        "jsx-a11y/click-events-have-key-events": 0,
+        "@typescript-eslint/no-empty-interface": 0
     },
     "settings": {
         "react": {

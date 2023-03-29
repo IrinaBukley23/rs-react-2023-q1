@@ -9,7 +9,6 @@ interface IState {
 }
 
 class FormPage extends React.PureComponent {
-  // eslint-disable-next-line react/state-in-constructor
   state: IState;
 
   constructor(props: object) {
