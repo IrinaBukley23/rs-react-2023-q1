@@ -39,7 +39,9 @@ class FormPage extends React.PureComponent {
           </div>
           <div className="about__content">
             {list.map((formItem: IUserData) => {
-              return <FormCard user={formItem} key={formItem.name} />;
+              return (
+                <FormCard user={formItem} key={String(Date.now()).slice()} />
+              );
             })}
           </div>
         </div>
