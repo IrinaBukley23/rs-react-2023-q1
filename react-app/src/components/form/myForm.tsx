@@ -3,8 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 import FormInput from "./formInput/formInput";
 import FormSelect from "./formSelect/formSelect";
 import "./myForm.scss";
+import { IUserData } from "../../types/type";
 
-function MyForm() {
+interface IProps {
+  handleCreate: (item: IUserData) => void;
+}
+
+function MyForm(props: IProps) {
   const [name, setName] = useState("");
   const [birth, setBirth] = useState("");
   const [country, setCountry] = useState("");
@@ -12,12 +17,19 @@ function MyForm() {
   const [male, setMale] = useState(false);
   const [female, setFemale] = useState(false);
   const [agree, setAgree] = useState(false);
-  const [formItem, setFormItem] = useState({});
+  const [formItem, setFormItem] = useState({
+    id: "",
+    name,
+    birth,
+    country,
+    profile: "",
+    sex: "",
+  });
   const [shouldShowElem, setShouldShowElem] = useState(false);
 
   useEffect(() => {
     const id = setInterval(() => {
-      setShouldShowElem(true);
+      clearInterval(id);
     }, 3000);
     return () => clearInterval(id);
   }, []);
@@ -47,15 +59,16 @@ function MyForm() {
       profile: file,
       sex: male ? "Male" : "Female",
     });
-    setName("");
-    setBirth("");
-    setCountry("");
-    setMale(false);
-    setFemale(false);
-    setFile("");
-    setAgree(false);
+    // setName("");
+    // setBirth("");
+    // setCountry("");
+    // setMale(false);
+    // setFemale(false);
+    // setFile("");
+    // setAgree(false);
   };
 
+  const { handleCreate } = props;
   return (
     <form className="form" onSubmit={handleSubmit} name="user">
       <FormInput
@@ -126,7 +139,11 @@ function MyForm() {
         />
       </div>
       {/* {agree ? <div className="error">field is required</div> : null} */}
-      <button type="submit" className="form__btn">
+      <button
+        type="submit"
+        className="form__btn"
+        onClick={() => handleCreate(formItem)}
+      >
         Submit
       </button>
       <div className="form__message">

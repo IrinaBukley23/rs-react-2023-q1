@@ -33,7 +33,7 @@ export interface IFormData {
   agree?: boolean;
 }
 
-export interface IFormItem {
+export interface IUserData {
   id: string;
   name: string;
   birth: string;
@@ -41,5 +41,3 @@ export interface IFormItem {
   profile: string;
   sex: string;
 }
-
-export type IUserData = Omit<IFormData, "agree">;
