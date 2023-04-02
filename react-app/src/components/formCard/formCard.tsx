@@ -1,4 +1,3 @@
-import React from "react";
 import { IUserData } from "types/type";
 import "./formCard.scss";
 

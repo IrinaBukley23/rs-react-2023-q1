@@ -1,4 +1,3 @@
-import React from "react";
 import { IProd } from "../../types/type";
 
 import "./card.scss";

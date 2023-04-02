@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React from "react";
 import { ICountry } from "types/type";
 import countries from "../../../constants/countries";
 import "./formSelect.scss";
