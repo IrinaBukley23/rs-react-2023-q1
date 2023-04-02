@@ -1,34 +1,27 @@
-import React from "react";
 import "./formInput.scss";
 
 interface IProps {
-  labelText?: string;
+  labelText: string;
   type: string;
-  value?: string;
-  name?: string;
-  className?: string;
-  style?: unknown;
-  reference?: React.RefObject<HTMLInputElement>;
-  onFocus: () => void;
+  value: string;
+  name: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-class FormInput extends React.PureComponent<IProps> {
-  render() {
-    const { labelText, type, value, name, reference, onFocus } = this.props;
-    return (
-      <label className="label">
-        {labelText}
-        <input
-          ref={reference}
-          className="field"
-          type={type}
-          value={value}
-          name={name}
-          onFocus={onFocus}
-        />
-      </label>
-    );
-  }
+function FormInput(props: IProps) {
+  const { onChange, type, name, value, labelText } = props;
+  return (
+    <label className="label">
+      {labelText}
+      <input
+        className="field"
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
+    </label>
+  );
 }
 
 export default FormInput;

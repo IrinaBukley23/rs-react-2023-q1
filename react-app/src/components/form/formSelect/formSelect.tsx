@@ -4,28 +4,32 @@ import countries from "../../../constants/countries";
 import "./formSelect.scss";
 
 interface IProps {
-  reference: RefObject<HTMLSelectElement>;
+  value: string;
   onFocus: () => void;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-class FormSelect extends React.PureComponent<IProps> {
-  render() {
-    const { reference, onFocus } = this.props;
-    return (
-      <>
-        <span>Select your country</span>
-        <select ref={reference} className="select" onFocus={onFocus}>
-          {countries.map((country: ICountry) => {
-            return (
-              <option key={country.id} value={country.value}>
-                {country.title}
-              </option>
-            );
-          })}
-        </select>
-      </>
-    );
-  }
+function FormSelect(props: IProps) {
+  const { onFocus, onChange, value } = props;
+  return (
+    <>
+      <span>Select your country</span>
+      <select
+        className="select"
+        value={value}
+        onFocus={onFocus}
+        onChange={onChange}
+      >
+        {countries.map((country: ICountry) => {
+          return (
+            <option key={country.id} value={country.value}>
+              {country.title}
+            </option>
+          );
+        })}
+      </select>
+    </>
+  );
 }
 
 export default FormSelect;
