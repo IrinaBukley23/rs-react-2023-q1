@@ -5,7 +5,8 @@ export type State = {
   name: string;
   birth: string;
   country: string;
-  sex: boolean | string;
+  male: boolean | string;
+  female: boolean | string;
   file: string;
   formList: IUserData[];
 };
@@ -14,7 +15,8 @@ export const initialState: State = {
   name: "",
   birth: "",
   country: "",
-  sex: false,
+  male: false,
+  female: false,
   file: "",
   formList: [],
 };
@@ -45,10 +47,16 @@ export const reducer = (state: State, action: Action): State => {
         country: action.payload,
       };
     }
-    case Actions.SET_SEX: {
+    case Actions.SET_MALE: {
       return {
         ...state,
-        sex: action.payload,
+        male: action.payload,
+      };
+    }
+    case Actions.SET_FEMALE: {
+      return {
+        ...state,
+        female: action.payload,
       };
     }
     case Actions.SET_FORMLIST: {

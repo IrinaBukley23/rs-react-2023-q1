@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { IUserData } from "types/type";
 import FormCard from "../components/formCard/formCard";
 import MyForm from "../components/form/myForm";
 import "./page.scss";
+import { GlobalContext } from "../store/GlobalContext";
 
 function FormPage() {
-  const [list, setList] = useState<IUserData[]>([]);
-
+  const { formList, setFormList } = useContext(GlobalContext);
   const handleCreate = (item: IUserData) => {
-    setList([...list, item]);
+    setFormList([...formList, item]);
   };
 
   return (
@@ -17,11 +17,6 @@ function FormPage() {
       <div className="formpage__wrapper">
         <div className="formpage__aside">
           <MyForm handleCreate={handleCreate} />
-        </div>
-        <div className="formpage__content">
-          {list.map((formItem: IUserData) => {
-            return <FormCard user={formItem} key={formItem.name} />;
-          })}
         </div>
       </div>
     </div>

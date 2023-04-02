@@ -4,7 +4,8 @@ export enum Actions {
   SET_NAME = "SET_NAME",
   SET_BIRTH = "SET_BIRTH",
   SET_COUNTRY = "SET_COUNTRY",
-  SET_SEX = "SET_SEX",
+  SET_MALE = "SET_MALE",
+  SET_FEMALE = "SET_FEMALE",
   SET_FILE = "SET_FILE",
   SET_FORMLIST = "SET_FORMLIST",
 }
@@ -27,7 +28,11 @@ export type Action =
       payload: string;
     }
   | {
-      type: Actions.SET_SEX;
+      type: Actions.SET_MALE;
+      payload: boolean | string;
+    }
+  | {
+      type: Actions.SET_FEMALE;
       payload: boolean | string;
     }
   | {

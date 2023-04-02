@@ -11,10 +11,11 @@ interface Props {
 
 export interface IContext extends State {
   setFile: (value: string) => void;
-  setUserName: (value: string) => void;
-  setUserBirth: (value: string) => void;
-  setUserCountry: (value: string) => void;
-  setUserSex: (value: boolean) => void;
+  setName: (value: string) => void;
+  setBirth: (value: string) => void;
+  setCountry: (value: string) => void;
+  setMale: (value: boolean) => void;
+  setFemale: (value: boolean) => void;
   setFormList: (value: IUserData[]) => void;
 }
 
@@ -26,34 +27,39 @@ export function Provider({ children }: Props) {
       name: state.name,
       birth: state.birth,
       country: state.country,
-      sex: state.sex,
+      male: state.male,
+      female: state.female,
       formList: state.formList,
       setFile: (file: string) => {
         dispatch({ type: Actions.SET_FILE, payload: file });
       },
-      setUserName: (name: string) => {
+      setName: (name: string) => {
         dispatch({ type: Actions.SET_NAME, payload: name });
       },
-      setUserBirth: (birth: string) => {
+      setBirth: (birth: string) => {
         dispatch({ type: Actions.SET_BIRTH, payload: birth });
       },
-      setUserCountry: (country: string) => {
+      setCountry: (country: string) => {
         dispatch({ type: Actions.SET_COUNTRY, payload: country });
       },
-      setUserSex: (sex: boolean) => {
-        dispatch({ type: Actions.SET_SEX, payload: sex });
+      setMale: (male: boolean) => {
+        dispatch({ type: Actions.SET_MALE, payload: male });
+      },
+      setFemale: (female: boolean) => {
+        dispatch({ type: Actions.SET_FEMALE, payload: female });
       },
       setFormList: (formList: IUserData[]) => {
         dispatch({ type: Actions.SET_FORMLIST, payload: formList });
       },
     };
   }, [
+    state.file,
+    state.name,
     state.birth,
     state.country,
-    state.file,
+    state.male,
+    state.female,
     state.formList,
-    state.name,
-    state.sex,
   ]);
 
   return (

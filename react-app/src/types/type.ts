@@ -34,7 +34,7 @@ export interface IFormData {
 }
 
 export interface IUserData {
-  id: string;
+  id?: string;
   name: string;
   birth: string;
   country: string;
