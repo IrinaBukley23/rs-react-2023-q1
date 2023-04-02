@@ -1,101 +1,53 @@
-import { Component } from "react";
-import { ISearch } from "../../types/type";
+import { useState } from "react";
 import searchIcon from "../../assets/search.png";
 
 import "./input.scss";
 
-interface IProps {}
-interface IState {
-  search: ISearch;
-  shouldShowElem?: boolean;
-}
+function Input() {
+  const [search, setSearch] = useState({ searchValue: "" });
+  const [shouldShowElem, setShouldShowElem] = useState(false);
 
-class Input extends Component<IProps, IState> {
-  constructor(props: IState) {
-    super(props);
-    this.state = {
-      search: {
-        searchValue: "",
-      },
-      shouldShowElem: false,
-    };
-  }
-
-  componentDidMount(): void {
-    this.setState({
-      shouldShowElem: false,
-      search: {
-        searchValue: localStorage.getItem("search") || "",
-      },
-    });
-  }
-
-  componentWillUnmount(): void {
-    const { search } = this.state;
-    localStorage.setItem("search", search.searchValue);
-  }
-
-  handleClick = () => {
-    const { search } = this.state;
-    this.setState({
-      shouldShowElem: true,
-    });
+  const handleClick = () => {
+    setShouldShowElem(true);
     localStorage.setItem("search", search.searchValue);
   };
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      search: {
-        searchValue: e.target.value,
-      },
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch({ searchValue: e.target.value });
+    localStorage.setItem("search", search.searchValue);
   };
 
-  handleClear = () => {
-    this.setState({
-      search: {
-        searchValue: "",
-      },
-      shouldShowElem: false,
-    });
+  const handleClear = () => {
+    setSearch({ searchValue: "" });
+    setShouldShowElem(false);
   };
 
-  render() {
-    const { shouldShowElem, search } = this.state;
-    return (
-      <>
-        <div className="search">
-          <input
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Enter your text"
-          />
-          {shouldShowElem ? (
-            <button
-              type="button"
-              className="search__clear"
-              onClick={this.handleClear}
-            >
-              X
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="search__img"
-              onClick={this.handleClick}
-            >
-              <img src={searchIcon} alt="search" />
-            </button>
-          )}
-        </div>
+  return (
+    <>
+      <div className="search">
+        <input
+          onChange={handleChange}
+          type="text"
+          value={search.searchValue}
+          placeholder="Enter your text"
+        />
         {shouldShowElem ? (
-          <div className="search__message">
-            You are entered - {search.searchValue}{" "}
-          </div>
-        ) : null}
-      </>
-    );
-  }
+          <button type="button" className="search__clear" onClick={handleClear}>
+            X
+          </button>
+        ) : (
+          <button type="button" className="search__img" onClick={handleClick}>
+            <img src={searchIcon} alt="search" />
+          </button>
+        )}
+      </div>
+      {shouldShowElem ? (
+        <div className="search__message">
+          You are entered - {search.searchValue}{" "}
+        </div>
+      ) : null}
+    </>
+  );
 }
 
 export default Input;
