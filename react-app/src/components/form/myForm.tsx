@@ -7,7 +7,7 @@ import { GlobalContext } from "../../store/GlobalContext";
 import FormCard from "../formCard/formCard";
 
 interface IProps {
-  //  handleCreate: (item: IUserData) => void;
+  handleCreate: (item: IUserData) => void;
 }
 
 function MyForm(props: IProps) {
@@ -57,6 +57,8 @@ function MyForm(props: IProps) {
       },
     ]);
   };
+
+  const { handleCreate } = props;
 
   return (
     <>
@@ -129,11 +131,7 @@ function MyForm(props: IProps) {
           />
         </div>
         {/* {agree ? <div className="error">field is required</div> : null} */}
-        <button
-          type="submit"
-          className="form__btn"
-          // onClick={() => handleCreate(formList)}
-        >
+        <button type="submit" className="form__btn">
           Submit
         </button>
         <div className="form__message">

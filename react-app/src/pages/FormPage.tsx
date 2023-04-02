@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { IUserData } from "types/type";
-import FormCard from "../components/formCard/formCard";
+// import FormCard from "../components/formCard/formCard";
 import MyForm from "../components/form/myForm";
 import "./page.scss";
 import { GlobalContext } from "../store/GlobalContext";
 
 function FormPage() {
   const { formList, setFormList } = useContext(GlobalContext);
-  const handleCreate = (item: IUserData) => {
-    setFormList([...formList, item]);
+  const handleCreate = () => {
+    setFormList([...formList]);
   };
 
   return (

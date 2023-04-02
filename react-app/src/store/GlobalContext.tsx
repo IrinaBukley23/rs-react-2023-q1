@@ -3,7 +3,7 @@ import { Actions } from "./actions";
 import { initialState, reducer, State } from "./reducer";
 import { IUserData } from "../types/type";
 
-export const GlobalContext = createContext<IContext | null>(null);
+export const GlobalContext = createContext<IContext>(null);
 
 interface Props {
   children: React.ReactNode;
@@ -21,47 +21,37 @@ export interface IContext extends State {
 
 export function Provider({ children }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const value = useMemo(() => {
-    return {
-      file: state.file,
-      name: state.name,
-      birth: state.birth,
-      country: state.country,
-      male: state.male,
-      female: state.female,
-      formList: state.formList,
-      setFile: (file: string) => {
-        dispatch({ type: Actions.SET_FILE, payload: file });
-      },
-      setName: (name: string) => {
-        dispatch({ type: Actions.SET_NAME, payload: name });
-      },
-      setBirth: (birth: string) => {
-        dispatch({ type: Actions.SET_BIRTH, payload: birth });
-      },
-      setCountry: (country: string) => {
-        dispatch({ type: Actions.SET_COUNTRY, payload: country });
-      },
-      setMale: (male: boolean) => {
-        dispatch({ type: Actions.SET_MALE, payload: male });
-      },
-      setFemale: (female: boolean) => {
-        dispatch({ type: Actions.SET_FEMALE, payload: female });
-      },
-      setFormList: (formList: IUserData[]) => {
-        dispatch({ type: Actions.SET_FORMLIST, payload: formList });
-      },
-    };
-  }, [
-    state.file,
-    state.name,
-    state.birth,
-    state.country,
-    state.male,
-    state.female,
-    state.formList,
-  ]);
-
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
+  const value = {
+    file: state.file,
+    name: state.name,
+    birth: state.birth,
+    country: state.country,
+    male: state.male,
+    female: state.female,
+    formList: state.formList,
+    setFile: (file: string) => {
+      dispatch({ type: Actions.SET_FILE, payload: file });
+    },
+    setName: (name: string) => {
+      dispatch({ type: Actions.SET_NAME, payload: name });
+    },
+    setBirth: (birth: string) => {
+      dispatch({ type: Actions.SET_BIRTH, payload: birth });
+    },
+    setCountry: (country: string) => {
+      dispatch({ type: Actions.SET_COUNTRY, payload: country });
+    },
+    setMale: (male: boolean) => {
+      dispatch({ type: Actions.SET_MALE, payload: male });
+    },
+    setFemale: (female: boolean) => {
+      dispatch({ type: Actions.SET_FEMALE, payload: female });
+    },
+    setFormList: (formList: IUserData[]) => {
+      dispatch({ type: Actions.SET_FORMLIST, payload: formList });
+    },
+  };
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
   );
