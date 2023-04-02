@@ -31,13 +31,13 @@ class FormPage extends React.PureComponent {
   render() {
     const { list } = this.state;
     return (
-      <div className="about">
+      <div className="formpage">
         <h2 className="title">Form page</h2>
-        <div className="about__wrapper">
-          <div className="about__aside">
+        <div className="formpage__wrapper">
+          <div className="formpage__aside">
             <MyForm handleCreate={this.handleCreate} />
           </div>
-          <div className="about__content">
+          <div className="formpage__content">
             {list.map((formItem: IUserData) => {
               return <FormCard user={formItem} key={formItem.name} />;
             })}
