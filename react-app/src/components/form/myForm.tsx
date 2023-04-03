@@ -1,16 +1,12 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
-import FormInput from "./formInput/formInput";
-import FormSelect from "./formSelect/formSelect";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import "./myForm.scss";
-import { IUserData } from "../../types/type";
 import { GlobalContext } from "../../store/GlobalContext";
-import FormCard from "../formCard/formCard";
+import { ICountry } from "../../types/type";
+import countries from "../../constants/countries";
 
-interface IProps {
-  handleCreate: (item: IUserData) => void;
-}
-
-function MyForm(props: IProps) {
+function MyForm() {
   const { name, setName } = useContext(GlobalContext);
   const { birth, setBirth } = useContext(GlobalContext);
   const { country, setCountry } = useContext(GlobalContext);
@@ -43,7 +39,11 @@ function MyForm(props: IProps) {
     callback(event.target.checked);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleCheckAgree = (event: ChangeEvent<HTMLInputElement>) => {
+    setAgree(!agree);
+  };
+
+  const handleShow = (e: FormEvent) => {
     e.preventDefault();
     setShouldShowElem(true);
     setFormList([
@@ -58,95 +58,184 @@ function MyForm(props: IProps) {
     ]);
   };
 
-  const { handleCreate } = props;
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setShouldShowElem(false);
+  };
+
+  const handleReset = () => {
+    setName("");
+    setBirth("");
+    setCountry("");
+    setMale(false);
+    setFemale(false);
+    setFile("");
+    setAgree(false);
+  };
 
   return (
-    <>
-      <form className="form" onSubmit={handleSubmit} name="user">
-        <FormInput
+    <Formik
+      initialValues={{
+        name: "",
+        birth: "",
+        country: "",
+        male: false,
+        female: false,
+        file: "",
+        agree: false,
+      }}
+      validationSchema={Yup.object({
+        name: Yup.string()
+          .min(2, "Too short!")
+          .required("This field is required!"),
+        birth: Yup.date().required("This field is required!"),
+        country: Yup.string().required("This field is required!"),
+        male: Yup.boolean().required("This field is required!"),
+        female: Yup.boolean().required("This field is required!"),
+        file: Yup.string().required("This field is required!"),
+        agree: Yup.boolean()
+          .required("Сonsent required!")
+          .oneOf([true], "Сonsent required!"),
+      })}
+      onSubmit={(values) => {
+        JSON.stringify(values, null, 2);
+      }}
+    >
+      <Form className="form" onSubmit={handleSubmit} name="user">
+        <label className="label" htmlFor="formName">
+          Enter your name
+        </label>
+        <Field
+          id="formName"
+          className="field"
           name="name"
           type="text"
-          labelText="Enter your name"
           value={name}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             handleChange(event, setName)
           }
         />
-        <FormInput
+        {!name && (
+          <ErrorMessage className="error" name="name" component="div" />
+        )}
+        <label className="label" htmlFor="formBirth">
+          Enter your birthday
+        </label>
+        <Field
+          className="field"
           name="birth"
           type="date"
-          labelText="Enter your birthday"
+          id="formBirth"
           value={birth}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             handleChange(event, setBirth)
           }
         />
-        <FormSelect
+        {!birth && (
+          <ErrorMessage className="error" name="birth" component="div" />
+        )}
+        <label className="label" htmlFor="formCountry">
+          Select your country
+        </label>
+        <Field
+          id="formCountry"
+          as="select"
+          className="select"
           value={country}
           onChange={(event: ChangeEvent<HTMLSelectElement>) =>
             handleChange(event, setCountry)
           }
-          onFocus={() => {}}
-        />
+        >
+          {countries.map((item: ICountry) => {
+            return (
+              <option key={item.id} value={item.value}>
+                {item.title}
+              </option>
+            );
+          })}
+        </Field>
+        {!country && (
+          <ErrorMessage className="error" name="country" component="div" />
+        )}
         <div className="form__radio">
-          <FormInput
+          <input
+            id="formMale"
+            className="field"
             name="sex"
             type="radio"
             value={male ? "male" : ""}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
               handleCheck(event, setMale)
             }
-            labelText="male"
           />
-          <FormInput
+          <label className="label" htmlFor="formMale">
+            male
+          </label>
+          <input
+            id="formFemale"
+            className="field"
             name="sex"
             type="radio"
             value={female ? "female" : ""}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
               handleCheck(event, setFemale)
             }
-            labelText="female"
           />
+          <label className="label" htmlFor="formFemale">
+            female
+          </label>
         </div>
+        {((!male && female) || (male && !female)) && (
+          <ErrorMessage className="error" name="sex" component="div" />
+        )}
         <div className="form__file">
-          <FormInput
+          <Field
+            className="field"
             name="file"
             type="file"
             value={file}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
               handleChange(event, setFile)
             }
-            labelText="Choose a file"
           />
         </div>
+        {!file && (
+          <ErrorMessage className="error" name="profile" component="div" />
+        )}
         <div className="form__checkbox">
-          <FormInput
+          <input
+            id="formAgree"
+            className="field"
             name="agree"
-            value={agree ? "agree" : ""}
+            value={agree}
             type="checkbox"
-            onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              handleCheck(event, setAgree)
-            }
-            labelText="Agree to data processing"
+            onChange={handleCheckAgree}
           />
+          <label className="label" htmlFor="formAgree">
+            Agree to data processing
+          </label>
+          {!agree && (
+            <ErrorMessage className="error" name="agree" component="div" />
+          )}
         </div>
-        {/* {agree ? <div className="error">field is required</div> : null} */}
-        <button type="submit" className="form__btn">
-          Submit
-        </button>
+        <Field
+          id="submit"
+          value="Submit"
+          type="submit"
+          className="form__btn"
+          onClick={handleShow}
+        />
+        <Field
+          value="Reset"
+          type="button"
+          onClick={handleReset}
+          className="form__btn"
+        />
         <div className="form__message">
           {shouldShowElem ? <div>Accepted</div> : null}
         </div>
-      </form>
-      <div className="formpage__content">
-        {formList.map((formItem: IUserData, index) => {
-          return (
-            // eslint-disable-next-line react/no-array-index-key
-            <FormCard user={formItem} key={`${formItem.birth}-${index}`} />
-          );
-        })}
-      </div>
-    </>
+      </Form>
+    </Formik>
   );
 }
 

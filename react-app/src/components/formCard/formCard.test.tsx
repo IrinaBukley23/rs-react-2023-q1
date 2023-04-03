@@ -10,6 +10,8 @@ describe("FormCard", () => {
     country: "Sweeden",
     female: true,
     male: false,
+    profile: "",
+    sex: "male",
   };
 
   it("shows list", () => {
@@ -20,6 +22,6 @@ describe("FormCard", () => {
 
     const { getAllByRole } = within(list);
     const items = getAllByRole("listitem");
-    expect(items.length).toBe(4);
+    expect(items.length).toBe(5);
   });
 });

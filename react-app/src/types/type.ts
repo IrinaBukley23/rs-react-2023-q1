@@ -41,3 +41,19 @@ export interface IUserData {
   profile: string;
   sex: string;
 }
+
+export type FormValues = {
+  id: number;
+  name: string;
+  birth: string;
+  country: string;
+  profile: string;
+  sex: string;
+};
+
+export type FormErrors = {
+  [PropertyKey in keyof FormValues]: {
+    type: string;
+    message: string;
+  };
+};

@@ -11,7 +11,6 @@
         label {
             display: flex;
             flex-direction: row-reverse;
-            width: 100%;
         }
         input {
             margin-right: 10px;
@@ -83,4 +82,28 @@
     color: red;
     background: none;
     text-align: center;
+}
+.field {
+    margin: 5px 0;
+    display: block;
+    width: 100%;
+    padding: 5px 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background: #501111;
+    &::placeholder {
+        color:aliceblue
+    }
+}
+.label {
+    background: none;
+}
+
+.select {
+    width: 100%;
+    padding: 5px 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
 }

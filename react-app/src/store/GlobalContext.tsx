@@ -1,4 +1,4 @@
-import { createContext, useMemo, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { Actions } from "./actions";
 import { initialState, reducer, State } from "./reducer";
 import { IUserData } from "../types/type";

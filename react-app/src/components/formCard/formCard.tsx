@@ -21,7 +21,7 @@ function FormCard(props: IProps) {
         </li>
         <li>
           User sex:
-          <span>{user.male ? " male" : " female"}</span>
+          <span>{user.sex}</span>
         </li>
         <li>
           User file: <span>{user.profile}</span>
