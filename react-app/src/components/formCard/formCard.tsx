@@ -8,7 +8,7 @@ interface IProps {
 function FormCard(props: IProps) {
   const { user } = props;
   return (
-    <div className="user" id="1">
+    <div className="user">
       <ul>
         <li>
           User name: <span>{user.name}</span>
@@ -21,10 +21,7 @@ function FormCard(props: IProps) {
         </li>
         <li>
           User sex:
-          <span>{user.sex}</span>
-        </li>
-        <li>
-          User file: <span>{user.profile}</span>
+          <span>{user.gender}</span>
         </li>
       </ul>
     </div>

@@ -1,19 +1,36 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import { IUserData } from "types/type";
 import MyForm from "../components/form/myForm";
 import "./page.scss";
-import { GlobalContext } from "../store/GlobalContext";
 import FormCard from "../components/formCard/formCard";
 
 function FormPage() {
-  const { formList } = useContext(GlobalContext);
+  const [shouldShowElem, setShouldShowElem] = useState(false);
+  const [formList, setFormList] = useState<IUserData[]>(
+    JSON.parse(localStorage.users || "[]")
+  );
+  console.log(formList);
+  const setForm = (): void => {
+    setFormList(JSON.parse(localStorage.users));
+    setShouldShowElem(true);
+  };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setShouldShowElem(false);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="formpage">
       <h2 className="title">Form page</h2>
       <div className="formpage__wrapper">
         <div className="formpage__aside">
-          <MyForm />
+          <MyForm setForm={setForm} />
+          <div className="form__message">
+            {shouldShowElem ? <div>Accepted</div> : null}
+          </div>
         </div>
         <div className="formpage__content">
           {formList.map((formItem: IUserData, index) => {

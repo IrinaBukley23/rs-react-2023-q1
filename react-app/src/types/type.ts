@@ -38,22 +38,14 @@ export interface IUserData {
   name: string;
   birth: string;
   country: string;
-  profile: string;
-  sex: string;
+  file: string;
+  gender: string;
 }
 
-export type FormValues = {
-  id: number;
-  name: string;
-  birth: string;
-  country: string;
-  profile: string;
-  sex: string;
-};
+export interface IFormProps {
+  setForm: () => void;
+}
 
-export type FormErrors = {
-  [PropertyKey in keyof FormValues]: {
-    type: string;
-    message: string;
-  };
-};
+export interface IFormSubmitProps {
+  [key: string]: string;
+}
