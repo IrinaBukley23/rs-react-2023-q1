@@ -9,6 +9,10 @@ function FormCard(props: IProps) {
   const { user } = props;
   return (
     <div className="user">
+      <div
+        className="form-card__image"
+        style={{ backgroundImage: `url(${user.file})` }}
+      />
       <ul>
         <li>
           User name: <span>{user.name}</span>

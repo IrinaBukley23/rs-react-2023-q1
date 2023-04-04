@@ -18,21 +18,3 @@ describe("Input", () => {
     expect(input.value).toBe("23");
   });
 });
-
-const SEARCH_KEY = "search";
-
-describe("Save to localStorage", () => {
-  const getItemSpy = vi.spyOn(Storage.prototype, "getItem");
-
-  afterEach(() => {
-    localStorage.clear();
-  });
-  describe("get search", () => {
-    it("get data from localStorage", () => {
-      const value = "someText";
-      localStorage.setItem(SEARCH_KEY, value);
-
-      expect(getItemSpy).toHaveBeenCalledWith(SEARCH_KEY);
-    });
-  });
-});

@@ -38,7 +38,7 @@ export interface IUserData {
   name: string;
   birth: string;
   country: string;
-  file: string;
+  file: FileList;
   gender: string;
 }
 

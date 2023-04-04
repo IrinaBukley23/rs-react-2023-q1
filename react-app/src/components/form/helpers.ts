@@ -23,7 +23,7 @@ export const saveUser = (user: IUserData): IFormSubmitProps => {
     birth: user.birth,
     country: user.country,
     gender: user.gender ? "Female" : "Male",
-    file: user.file[0],
+    file: URL.createObjectURL(user.file[0]),
   };
 };
 

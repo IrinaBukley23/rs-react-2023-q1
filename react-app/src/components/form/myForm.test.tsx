@@ -1,10 +1,12 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { vi } from "vitest";
 import MyForm from "./myForm";
 
 describe("MyForm", () => {
+  const mockFunc = vi.fn;
   it("render MyForm", () => {
-    render(<MyForm />);
+    render(<MyForm setForm={mockFunc} />);
 
     expect(screen.getByText(/name/i)).toBeInTheDocument();
     expect(screen.getByText(/birth/i)).toBeInTheDocument();
@@ -12,7 +14,7 @@ describe("MyForm", () => {
   });
 
   it("errors with focus", async () => {
-    render(<MyForm />);
+    render(<MyForm setForm={mockFunc} />);
     await waitFor(() => {
       fireEvent.click(screen.getByText(/submit/i));
     });
