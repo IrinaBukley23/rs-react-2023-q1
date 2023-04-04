@@ -22,6 +22,6 @@ describe("FormCard", () => {
 
     const { getAllByRole } = within(list);
     const items = getAllByRole("listitem");
-    expect(items.length).toBe(4);
+    expect(items.length).toBe(2);
   });
 });
