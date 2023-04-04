@@ -37,14 +37,11 @@ function FormSelect(props: IProps) {
           validate: () => valid(current.current),
         })}
         className="select"
+        onClick={(event) => setCurrent(event.target)}
       >
         {countries.map((country: ICountry) => {
           return (
-            <option
-              onClick={(event) => setCurrent(event.target)}
-              key={country.id}
-              value={country.value}
-            >
+            <option key={country.id} value={country.value}>
               {country.title}
             </option>
           );
