@@ -9,7 +9,6 @@ function FormPage() {
   const [formList, setFormList] = useState<IUserData[]>(
     JSON.parse(localStorage.users || "[]")
   );
-  console.log(formList);
   const setForm = (): void => {
     setFormList(JSON.parse(localStorage.users));
     setShouldShowElem(true);
