@@ -1,37 +1,29 @@
-import { IProd } from "../../types/type";
+import { IChar } from "../../types/type";
 
 import "./card.scss";
 
 interface IProps {
-  prodItem: IProd;
+  char: IChar;
 }
 
 function Card(props: IProps) {
-  const { prodItem } = props;
+  const { char } = props;
   return (
-    <div className="card" id={String(prodItem.id)}>
-      <h5 className="card__title">{prodItem.title}</h5>
+    <div className="card" id={String(char.id)}>
+      <h5 className="card__title">{char.name}</h5>
       <div className="card__wrapper">
         <div className="card__image">
-          <img src={prodItem.thumbnail} alt={prodItem.title} />
+          <img src={char.image} alt={char.name} />
         </div>
         <div className="card__info">
-          <p className="card__info-text">Category: {prodItem.category}</p>
-          <p className="card__info-text">Brand: {prodItem.brand}</p>
-          <p className="card__info-text">Price: €{prodItem.price}</p>
-          <p className="card__info-text">Rating: {prodItem.rating}</p>
-          <p className="card__info-text">In stock: {prodItem.stock}</p>
+          <p className="card__info-text">Species: {char.species}</p>
+          <p className="card__info-text">Status: {char.status}</p>
+          {/* <p className="card__info-text">Price: €{char.price}</p>
+          <p className="card__info-text">Rating: {char.rating}</p>
+          <p className="card__info-text">In stock: {char.stock}</p>
           <p className="card__info-text">
-            Discount: {prodItem.discountPercentage}
-          </p>
-        </div>
-        <div className="card__btns">
-          <button type="button" className="card__btn">
-            Add to cart
-          </button>
-          <button type="button" className="card__btn">
-            Details
-          </button>
+            Discount: {char.discountPercentage}
+          </p> */}
         </div>
       </div>
     </div>

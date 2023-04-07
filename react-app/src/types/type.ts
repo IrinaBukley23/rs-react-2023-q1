@@ -1,15 +1,23 @@
-export interface IProd {
+export interface IChar {
   id: number;
-  title: string;
-  price: number;
-  description?: string;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[];
+  created: string;
+  gender: string;
+  image: string;
+  name: string;
+  species: string;
+  status: string;
+  location: ILocation;
+  origin: IOrigin;
+}
+
+interface ILocation {
+  name: string;
+  url: string;
+}
+
+interface IOrigin {
+  name: string;
+  url: string;
 }
 
 export interface ISearch {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IProd } from "../types/type";
+import { IChar } from "../types/type";
 import Card from "../components/card/card";
 import Input from "../components/input/input";
 import "./page.scss";
@@ -7,15 +7,14 @@ import productsData from "../constants/mochData";
 
 function Home() {
   const [prods] = useState(productsData);
-  const [mochData, setMochData] = useState([]);
+  const [charList, setCharList] = useState<IChar[]>([]);
   const [loading, setLoading] = useState(true);
 
   async function getData(url: string) {
     const response = await fetch(url);
     const data = await response.json();
     const res = data.results;
-    console.log(res);
-    setMochData(res);
+    setCharList(res);
     setLoading(false);
   }
 
@@ -26,6 +25,7 @@ function Home() {
   } catch (onError) {
     console.error("Error...");
   }
+  console.log(charList);
 
   return (
     <>
@@ -34,8 +34,8 @@ function Home() {
         <Input />
       </div>
       <div className="container">
-        {prods.map((prod: IProd) => {
-          return <Card prodItem={prod} key={prod.id} />;
+        {charList.map((char: IChar) => {
+          return <Card char={char} key={char.id} />;
         })}
       </div>
     </>
