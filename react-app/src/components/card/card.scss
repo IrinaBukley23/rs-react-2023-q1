@@ -4,6 +4,7 @@
     border: 2px solid orange;
     margin-bottom: 30px;
     overflow: hidden;
+    position: relative;
     &__wrapper {
         position: relative;
     }
@@ -44,20 +45,15 @@
             background: none;
         }
     }
-    &__btns {
+    &__btn {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-        margin: 0 auto 10px;
-        background: none;
-        button {
-            padding: 5px 15px;
-            margin: 0 18px;
-            border: 2px solid orange;
-            border-radius: 5px;
-            font-size: 20px;
-            cursor: pointer;
-        }
+        bottom: 10px;
+        padding: 5px 15px;
+        width: 88%;
+        margin: 0 18px;
+        border: 2px solid orange;
+        border-radius: 5px;
+        font-size: 20px;
+        cursor: pointer;
     }
 }

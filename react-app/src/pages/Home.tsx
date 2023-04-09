@@ -3,10 +3,8 @@ import { IChar } from "../types/type";
 import Card from "../components/card/card";
 import Input from "../components/input/input";
 import "./page.scss";
-import productsData from "../constants/mochData";
 
 function Home() {
-  const [prods] = useState(productsData);
   const [charList, setCharList] = useState<IChar[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,9 +21,8 @@ function Home() {
       getData("https://rickandmortyapi.com/api/character/?status=alive");
     }, []);
   } catch (onError) {
-    console.error("Error...");
+    throw new Error("Something went wrong...");
   }
-  console.log(charList);
 
   return (
     <>
@@ -34,9 +31,13 @@ function Home() {
         <Input />
       </div>
       <div className="container">
-        {charList.map((char: IChar) => {
-          return <Card char={char} key={char.id} />;
-        })}
+        {loading ? (
+          <h5 className="loading">Loading...</h5>
+        ) : (
+          charList.map((char: IChar) => {
+            return <Card char={char} key={char.id} />;
+          })
+        )}
       </div>
     </>
   );

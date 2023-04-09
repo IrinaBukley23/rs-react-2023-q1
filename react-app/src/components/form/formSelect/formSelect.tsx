@@ -34,7 +34,7 @@ function FormSelect(props: IProps) {
       <select
         {...(register("country"),
         {
-          validate: Boolean(valid(current.current)),
+          validate: valid(current.current),
         })}
         className="select"
         onClick={(event) => setCurrent(event.target)}
