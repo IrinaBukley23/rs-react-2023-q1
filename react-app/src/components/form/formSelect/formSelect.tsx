@@ -19,7 +19,7 @@ interface IProps {
 }
 
 function FormSelect(props: IProps) {
-  const { register, errors, valid, setValue, trigger } = props;
+  const { register, errors, setValue, trigger } = props;
   const current = useRef("");
 
   function setCurrent(target: EventTarget) {
@@ -32,10 +32,7 @@ function FormSelect(props: IProps) {
     <>
       <span>Select your country</span>
       <select
-        {...(register("country"),
-        {
-          validate: valid(current.current),
-        })}
+        {...register("country")}
         className="select"
         onClick={(event) => setCurrent(event.target)}
       >
