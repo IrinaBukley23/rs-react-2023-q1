@@ -6,8 +6,8 @@ export interface IChar {
   name: string;
   species: string;
   status: string;
-  location: ILocation;
-  origin: IOrigin;
+  location?: ILocation;
+  origin?: IOrigin;
 }
 
 interface ILocation {

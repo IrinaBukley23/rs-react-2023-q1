@@ -1,11 +1,14 @@
-import { describe, it } from "vitest";
+import { describe, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Input from "./input";
 
 const setup = () => {
-  const utils = render(<Input />);
+  const mockFunc = vi.fn;
+  const utils = render(
+    <Input search="23" onChange={mockFunc} onClick={mockFunc} />
+  );
   const input: HTMLInputElement =
-    screen.getByPlaceholderText("Enter your text");
+    screen.getByPlaceholderText("Enter char name");
   return {
     input,
     ...utils,

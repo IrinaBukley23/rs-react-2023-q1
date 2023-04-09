@@ -4,37 +4,37 @@ import Card from "./card";
 
 const mochData = {
   id: 1,
-  title: "Apple",
-  description: "Apple",
-  price: 111,
-  discountPercentage: 111,
-  rating: 111,
-  stock: 111,
-  brand: "Apple",
-  category: "Apple",
-  thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-  images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
+  created: "10.04.2023",
+  gender: "male",
+  image: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  name: "Rick",
+  species: "human",
+  status: "alive",
 };
 
 describe("Card", () => {
   it("renders Card by title", () => {
-    render(<Card prodItem={mochData} />);
+    render(<Card char={mochData} key={mochData.id} />);
     expect(
-      screen.getByRole("heading", {
+      screen.findByRole("heading", {
         level: 5,
-      })
-    ).toHaveTextContent("Apple");
-  });
-  it("renders Card button", () => {
-    render(<Card prodItem={mochData} />);
-    expect(
-      screen.findByRole("button", {
-        name: "/details/i",
+        name: "/Rick/i",
       })
     ).toBeDefined();
+  });
+  it("renders Card button", () => {
+    render(<Card char={mochData} key={mochData.id} />);
     expect(
       screen.findByRole("button", {
-        name: "/add/i",
+        name: "/More info/i",
+      })
+    ).toBeDefined();
+  });
+  it("renders Modal window", () => {
+    render(<Card char={mochData} key={mochData.id} />);
+    expect(
+      screen.findByRole("button", {
+        name: "/X/i",
       })
     ).toBeDefined();
   });

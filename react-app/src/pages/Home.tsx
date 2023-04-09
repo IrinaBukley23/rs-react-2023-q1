@@ -14,11 +14,12 @@ function Home() {
   };
 
   async function getData(url: string) {
-    const response = await fetch(url);
-    const data = await response.json();
-    const res = data.results;
-    setCharList(res);
-    setLoading(false);
+    await fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setCharList(data.results);
+        setLoading(false);
+      });
   }
 
   try {

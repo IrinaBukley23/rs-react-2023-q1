@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { expect } from "vitest";
 import FormPage from "./FormPage";
 
-describe("findByText Examples", () => {
+describe("Render Form Page", () => {
   it("should show form", () => {
     render(<FormPage />);
     expect(

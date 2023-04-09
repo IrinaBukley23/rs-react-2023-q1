@@ -17,7 +17,12 @@ function Input({ onChange, search, onClick }: IProps) {
         value={search}
         placeholder="Enter char name"
       />
-      <button type="button" className="search__img" onClick={onClick}>
+      <button
+        type="button"
+        id="search__btn"
+        className="search__img"
+        onClick={onClick}
+      >
         <img src={searchIcon} alt="search" />
       </button>
     </div>
