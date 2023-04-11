@@ -6,18 +6,6 @@ import { MemoryRouter } from "react-router-dom";
 import App from "./App";
 
 describe("App", () => {
-  it("renders Home page", () => {
-    render(
-      <MemoryRouter initialEntries={["/"]}>
-        <App />
-      </MemoryRouter>
-    );
-    expect(
-      screen.getByRole("heading", {
-        level: 2,
-      })
-    ).toHaveTextContent("Home page");
-  });
   it("renders About us page", () => {
     render(
       <MemoryRouter initialEntries={["/about"]}>

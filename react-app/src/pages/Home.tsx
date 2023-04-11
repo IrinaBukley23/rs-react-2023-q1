@@ -13,8 +13,8 @@ function Home() {
     setSearch(e.target.value);
   };
 
-  async function getData(url: string) {
-    await fetch(url)
+  function getData(url: string) {
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setCharList(data.results);
