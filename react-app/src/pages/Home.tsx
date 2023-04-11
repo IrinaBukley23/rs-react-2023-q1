@@ -21,20 +21,24 @@ function Home() {
         setLoading(false);
       });
   }
-
-  try {
-    useEffect(() => {
-      getData("https://rickandmortyapi.com/api/character/?status=alive");
-    }, []);
-  } catch (onError) {
-    throw new Error("Something went wrong...");
+  function getSearchValue(): string {
+    const value = localStorage.getItem("value");
+    if (value) return value;
+    return "";
   }
+
+  useEffect(() => {
+    getData(
+      `https://rickandmortyapi.com/api/character/?name=${getSearchValue()}`
+    );
+  }, [search]);
 
   const handleClick = () => {
     getData(
       `https://rickandmortyapi.com/api/character/?name=${search.toLowerCase()}`
     );
     setSearch("");
+    localStorage.setItem("value", search);
   };
 
   return (
