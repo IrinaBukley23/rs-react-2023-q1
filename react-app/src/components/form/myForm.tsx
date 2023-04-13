@@ -46,13 +46,12 @@ function MyForm({ setForm }: IFormProps) {
         type="date"
         labelText="Enter your birthday"
       />
-
       <FormSelect
         register={register}
         errors={errors}
         valid={isCountry}
         trigger={trigger}
-        setValue={setValue}
+        setCountry={setValue}
       />
       <div className="form__radio">
         <GenderInput
@@ -81,7 +80,6 @@ function MyForm({ setForm }: IFormProps) {
           name="agree"
         />
       </div>
-
       <button type="submit" className="form__btn">
         Submit
       </button>

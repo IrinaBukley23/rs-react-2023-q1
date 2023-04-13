@@ -47,7 +47,7 @@ export interface IUserData {
   birth: string;
   country: string;
   file: FileList;
-  gender: string;
+  gender: boolean;
 }
 
 export interface IFormProps {

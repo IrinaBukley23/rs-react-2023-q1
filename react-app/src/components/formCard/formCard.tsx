@@ -15,11 +15,17 @@ function FormCard(props: IProps) {
       />
       <ul>
         <li>
-          User name: <span>{user.name}</span>
+          User name: <span> {user.name}</span>
+        </li>
+        <li>
+          User birth: <span> {user.birth}</span>
+        </li>
+        <li>
+          User country: <span> {user.country}</span>
         </li>
         <li>
           User sex:
-          <span>{user.gender}</span>
+          <span> {user.gender}</span>
         </li>
       </ul>
     </div>

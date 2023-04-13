@@ -11,12 +11,6 @@ interface IProps {
   errors: FieldErrors<FieldValues>;
 }
 
-export function isBirthday(value: string) {
-  if (value === "") return false;
-  if (new Date() < new Date(value)) return false;
-  return true;
-}
-
 function BirthInput(props: IProps) {
   const { labelText, type, name, register, errors } = props;
   return (
@@ -27,9 +21,8 @@ function BirthInput(props: IProps) {
           className="field"
           type={type}
           name={name}
-          {...register("bitrh", {
+          {...register("birth", {
             required: "Field must be filled",
-            validate: (value: string) => isBirthday(value),
           })}
         />
       </label>

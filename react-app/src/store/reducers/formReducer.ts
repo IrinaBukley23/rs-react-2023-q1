@@ -7,42 +7,6 @@ const formReducer = (
   action: Action
 ): FormState => {
   switch (action.type) {
-    case Actions.SET_FILE: {
-      return {
-        ...state,
-        file: action.payload,
-      };
-    }
-    case Actions.SET_NAME: {
-      return {
-        ...state,
-        name: action.payload,
-      };
-    }
-    case Actions.SET_BIRTH: {
-      return {
-        ...state,
-        birth: action.payload,
-      };
-    }
-    case Actions.SET_COUNTRY: {
-      return {
-        ...state,
-        country: action.payload,
-      };
-    }
-    case Actions.SET_MALE: {
-      return {
-        ...state,
-        male: action.payload,
-      };
-    }
-    case Actions.SET_FEMALE: {
-      return {
-        ...state,
-        female: action.payload,
-      };
-    }
     case Actions.SET_FORMLIST: {
       return {
         ...state,

@@ -1,4 +1,4 @@
-import { IChar } from "types/type";
+import { IChar, IUserData } from "types/type";
 import { Actions } from "./actionTypes";
 
 export const setSearch = (search: string) => ({
@@ -14,4 +14,9 @@ export const setLoading = (loading: boolean) => ({
 export const setData = (data: IChar[]) => ({
   type: Actions.SET_CHARLIST,
   payload: data,
+});
+
+export const setFormList = (formList: IUserData) => ({
+  type: Actions.SET_FORMLIST,
+  payload: formList,
 });

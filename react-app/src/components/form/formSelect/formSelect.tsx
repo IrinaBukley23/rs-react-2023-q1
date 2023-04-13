@@ -15,18 +15,18 @@ interface IProps {
   errors: FieldErrors<FieldValues>;
   valid: (value: string) => boolean;
   trigger: UseFormTrigger<FieldValues>;
-  setValue: UseFormSetValue<FieldValues>;
+  setCountry: UseFormSetValue<FieldValues>;
 }
 
 function FormSelect(props: IProps) {
-  const { register, errors, setValue, trigger } = props;
+  const { register, errors, setCountry, trigger } = props;
   const current = useRef("");
 
-  function setCurrent(target: EventTarget) {
+  const setCurrent = (target: EventTarget) => {
     current.current = (target as HTMLSelectElement).value || "";
-    setValue("country", current.current);
+    setCountry("country", current.current);
     trigger("country");
-  }
+  };
 
   return (
     <>

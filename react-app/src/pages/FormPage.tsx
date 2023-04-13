@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import { IUserData } from "types/type";
+import { useDispatch, useSelector } from "react-redux";
+import { setFormList } from "../store/actions/actionCreators";
 import MyForm from "../components/form/myForm";
 import "./page.scss";
 import FormCard from "../components/formCard/formCard";
+import { State } from "../store/utils";
+import { IUserData } from "../types/type";
 
 function FormPage() {
   const [shouldShowElem, setShouldShowElem] = useState(false);
-  const [formList, setFormList] = useState<IUserData[]>(
-    JSON.parse(localStorage.users || "[]")
-  );
+  const dispatch = useDispatch();
+  const { formList } = useSelector((state: State) => state.form);
   const setForm = (): void => {
-    setFormList(JSON.parse(localStorage.users));
+    dispatch(setFormList(JSON.parse(localStorage.users)));
     setShouldShowElem(true);
   };
 
@@ -34,8 +36,10 @@ function FormPage() {
         <div className="formpage__content">
           {formList.map((formItem: IUserData, index) => {
             return (
-              // eslint-disable-next-line react/no-array-index-key
-              <FormCard user={formItem} key={`${formItem.birth}-${index}`} />
+              <FormCard
+                user={formItem}
+                key={`${formItem.birth}-${formItem.name}`}
+              />
             );
           })}
         </div>

@@ -15,8 +15,7 @@ export type FormState = {
   name: string;
   birth: string;
   country: string;
-  male: boolean | string;
-  female: boolean | string;
+  gender: boolean;
   file: string;
   formList: IUserData[];
 };
@@ -31,8 +30,7 @@ export const initialForm: FormState = {
   name: "",
   birth: "",
   country: "",
-  male: false,
-  female: false,
+  gender: false,
   file: "",
   formList: [],
 };

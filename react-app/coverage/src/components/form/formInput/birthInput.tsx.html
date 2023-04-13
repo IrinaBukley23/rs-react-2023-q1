@@ -182,7 +182,7 @@ function BirthInput(props: IProps) {
           className="field"
           type={type}
           name={name}
-          {...register("bitrh", {
+          {...register("birth", {
             required: "Field must be filled",
             validate: <span class="fstat-no" title="function not covered" >(value: string) =&gt; isBirthday(value),</span>
           })}
