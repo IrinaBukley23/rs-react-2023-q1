@@ -1,28 +1,21 @@
+import { IChar } from "types/type";
 import { HomeState, initialHome } from "../utils";
-import { Action, Actions } from "../actions/actionTypes";
+import { Actions } from "../actions/actionTypes";
 
 const homeReducer = (
-  action: Action,
-  state: HomeState = initialHome
+  // eslint-disable-next-line @typescript-eslint/default-param-last
+  state: HomeState = initialHome,
+  action: { type: string; payload: unknown }
 ): HomeState => {
   switch (action.type) {
     case Actions.SET_SEARCH: {
-      return {
-        ...state,
-        search: action.payload,
-      };
+      return { ...state, search: action.payload as string };
     }
     case Actions.SET_LOADING: {
-      return {
-        ...state,
-        loading: action.payload,
-      };
+      return { ...state, loading: action.payload as boolean };
     }
-    case Actions.SET_DATA: {
-      return {
-        ...state,
-        charList: [...action.payload],
-      };
+    case Actions.SET_CHARLIST: {
+      return { ...state, charList: [...(action.payload as IChar[])] };
     }
     default:
       return state;

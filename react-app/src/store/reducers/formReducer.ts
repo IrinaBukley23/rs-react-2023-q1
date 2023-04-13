@@ -1,27 +1,11 @@
+import { FormState, initialForm } from "../utils";
 import { Action, Actions } from "../actions/actionTypes";
-import { IUserData } from "../../types/type";
 
-export type State = {
-  name: string;
-  birth: string;
-  country: string;
-  male: boolean | string;
-  female: boolean | string;
-  file: string;
-  formList: IUserData[];
-};
-
-export const initialState: State = {
-  name: "",
-  birth: "",
-  country: "",
-  male: false,
-  female: false,
-  file: "",
-  formList: [],
-};
-
-export const formReducer = (state: State, action: Action): State => {
+const formReducer = (
+  // eslint-disable-next-line @typescript-eslint/default-param-last
+  state: FormState = initialForm,
+  action: Action
+): FormState => {
   switch (action.type) {
     case Actions.SET_FILE: {
       return {
@@ -69,3 +53,5 @@ export const formReducer = (state: State, action: Action): State => {
       return state;
   }
 };
+
+export default formReducer;

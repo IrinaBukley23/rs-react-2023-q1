@@ -1,5 +1,10 @@
 import { IChar, IUserData } from "types/type";
 
+export type State = {
+  home: HomeState;
+  form: FormState;
+};
+
 export type HomeState = {
   search: string;
   loading: boolean;

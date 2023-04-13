@@ -3,7 +3,7 @@ import { IChar, IUserData } from "../../types/type";
 export enum Actions {
   SET_SEARCH = "SET_SEARCH",
   SET_LOADING = "SET_LOADING",
-  SET_DATA = "SET_DATA",
+  SET_CHARLIST = "SET_CHARLIST",
   SET_NAME = "SET_NAME",
   SET_BIRTH = "SET_BIRTH",
   SET_COUNTRY = "SET_COUNTRY",
@@ -23,7 +23,7 @@ export type Action =
       payload: boolean;
     }
   | {
-      type: Actions.SET_DATA;
+      type: Actions.SET_CHARLIST;
       payload: IChar[];
     }
   | {

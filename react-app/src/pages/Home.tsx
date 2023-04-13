@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearch } from "../store/actions/actionCreators";
 import { IChar } from "../types/type";
 import Card from "../components/card/card";
 import Input from "../components/input/input";
 import "./page.scss";
+import { State } from "../store/utils";
 
 function Home() {
   const [charList, setCharList] = useState<IChar[]>([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
+
+  const dispatch = useDispatch();
+  const { search } = useSelector((state: State) => state.home);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+    dispatch(setSearch(e.target.value));
   };
 
   function getData(url: string) {
@@ -21,24 +26,14 @@ function Home() {
         setLoading(false);
       });
   }
-  function getSearchValue(): string {
-    const value = localStorage.getItem("value");
-    if (value) return value;
-    return "";
-  }
 
   useEffect(() => {
-    getData(
-      `https://rickandmortyapi.com/api/character/?name=${getSearchValue()}`
-    );
+    getData(`https://rickandmortyapi.com/api/character/?name=`);
   }, [search]);
 
   const handleClick = () => {
-    getData(
-      `https://rickandmortyapi.com/api/character/?name=${search.toLowerCase()}`
-    );
-    setSearch("");
-    localStorage.setItem("value", search);
+    // dispatch(setSearch(""));
+    getData(`https://rickandmortyapi.com/api/character/?name=${search || ""}`);
   };
 
   return (
