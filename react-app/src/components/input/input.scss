@@ -1,0 +1,41 @@
+.search {
+    position: relative;
+    input {
+        width: 100%;
+        padding: 15px 25px;
+        font-size: 24px;
+        border: none;
+        border-radius: 50px;
+        color: black;
+        background: #ffffff;
+    }
+    &__img {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        border-radius: 50%;
+        background: #ffffff;
+        cursor: pointer;
+        img {
+            width: 100%;
+            background: #ffffff;
+        }
+    }
+    &__clear {
+        color: black;
+        font-size: 34px;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+        border: none;
+        background: #ffffff;
+    }
+    &__message {
+        margin-top: 5px;
+        text-align: center;
+    }
+}
+

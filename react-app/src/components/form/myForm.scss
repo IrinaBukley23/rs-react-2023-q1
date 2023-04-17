@@ -1,0 +1,80 @@
+.form {
+    max-width: 450px;
+    min-width: 320px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #612828;
+    box-shadow: 6px 6px 2px rgb(0,0,0,0.4);
+    &__checkbox {
+        display: flex;
+        background: none;
+        label {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        input {
+            margin-right: 10px;
+            width: 10%;
+        }
+    }
+    &__radio {
+        display: flex;
+        justify-content: flex-start;
+        background: none;
+        margin: 10px 0;
+        label {
+            display: flex;
+            flex-direction: row-reverse;
+            background: none;
+            margin-right: 30px;
+            input {
+                margin-right: 10px;
+            }
+        }
+    }
+    &__btn {
+        width: 60%;
+        margin: 15px auto;
+        display: block;
+        padding: 5px 15px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            box-shadow: 6px 6px 2px rgb(0,0,0,0.4);
+        }
+    }
+    &__file {
+        background: none;
+        margin-bottom: 15px;
+        label {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            background: #501111;
+            display: inline-block;
+            cursor: pointer;
+            input {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+        }
+    }
+    &__message {
+        text-align: center;
+        font-size: 28px;
+        background: none;
+        div{
+            background: none;
+            color: aquamarine;
+        }
+    }
+}

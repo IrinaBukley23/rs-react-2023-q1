@@ -1,0 +1,19 @@
+.user {
+    width: 300px;
+    height: fit-content;
+    border-radius: 15px;
+    border: 2px solid orange;
+    margin: 0 15px 30px;
+    overflow: hidden;
+    padding: 15px;
+    box-shadow: 6px 6px 2px rgb(0,0,0,0.4);
+    ul{
+        list-style: none;
+        li {
+            span {
+                font-weight: 700;
+                font-size: 22px;
+            }
+        }
+    }
+}
