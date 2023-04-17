@@ -8,9 +8,8 @@ describe("FormCard", () => {
     name: "Irina",
     birth: "01.01.2001",
     country: "Sweeden",
-    female: true,
-    male: false,
-    profile: "",
+    gender: false,
+    file: "",
     sex: "male",
   };
 
@@ -22,6 +21,6 @@ describe("FormCard", () => {
 
     const { getAllByRole } = within(list);
     const items = getAllByRole("listitem");
-    expect(items.length).toBe(2);
+    expect(items.length).toBe(4);
   });
 });

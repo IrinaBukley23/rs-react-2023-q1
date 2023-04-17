@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">18.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/64</span>
+                <span class='fraction'>11/60</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">18.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/64</span>
+                <span class='fraction'>11/60</span>
             </div>
         
             
@@ -123,23 +123,15 @@
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -191,47 +183,43 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useEffect, useState } from "react";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearch, setCharList } from "../store/actions/actionCreators";
 import { IChar } from "../types/type";
 import Card from "../components/card/card";
 import Input from "../components/input/input";
 import "./page.scss";
+import { State } from "../store/utils";
 &nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function Home() {</span></span>
-<span class="cstat-no" title="statement not covered" >  const [charList, setCharList] = useState&lt;IChar[]&gt;([]);</span>
 <span class="cstat-no" title="statement not covered" >  const [loading, setLoading] = useState(true);</span>
-<span class="cstat-no" title="statement not covered" >  const [search, setSearch] = useState("");</span>
+<span class="cstat-no" title="statement not covered" >  const dispatch = useDispatch();</span>
+<span class="cstat-no" title="statement not covered" >  const { search, charList } = useSelector((state: State) =&gt; state.home);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const handleChange = (e: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setSearch(e.target.value);</span>
+<span class="cstat-no" title="statement not covered" >    dispatch(setSearch(e.target.value));</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  function getData(url: string) {</span>
-<span class="cstat-no" title="statement not covered" >    fetch(url)</span>
-<span class="cstat-no" title="statement not covered" >      .then((response) =&gt; response.json())</span>
-<span class="cstat-no" title="statement not covered" >      .then((data) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        setCharList(data.results);</span>
-<span class="cstat-no" title="statement not covered" >        setLoading(false);</span>
-<span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >  function getSearchValue(): string {</span>
-<span class="cstat-no" title="statement not covered" >    const value = localStorage.getItem("value");</span>
-<span class="cstat-no" title="statement not covered" >    if (value) return value;</span>
-<span class="cstat-no" title="statement not covered" >    return "";</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  const getData = useCallback(</span>
+<span class="cstat-no" title="statement not covered" >    (url: string) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      fetch(url)</span>
+<span class="cstat-no" title="statement not covered" >        .then((response) =&gt; response.json())</span>
+<span class="cstat-no" title="statement not covered" >        .then((data) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          dispatch(setCharList(data.results));</span>
+<span class="cstat-no" title="statement not covered" >          setLoading(false);</span>
+<span class="cstat-no" title="statement not covered" >        });</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
+<span class="cstat-no" title="statement not covered" >    [dispatch]</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    getData(</span>
-<span class="cstat-no" title="statement not covered" >      `https://rickandmortyapi.com/api/character/?name=${getSearchValue()}`</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" >  }, [search]);</span>
+<span class="cstat-no" title="statement not covered" >    getData(`https://rickandmortyapi.com/api/character/?name=${search || ""}`);</span>
+<span class="cstat-no" title="statement not covered" >    // eslint-disable-next-line react-hooks/exhaustive-deps</span>
+<span class="cstat-no" title="statement not covered" >  }, []);</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  const handleClick = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    getData(</span>
-<span class="cstat-no" title="statement not covered" >      `https://rickandmortyapi.com/api/character/?name=${search.toLowerCase()}`</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" >    setSearch("");</span>
-<span class="cstat-no" title="statement not covered" >    localStorage.setItem("value", search);</span>
+<span class="cstat-no" title="statement not covered" >    getData(`https://rickandmortyapi.com/api/character/?name=${search || ""}`);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
@@ -262,7 +250,7 @@ export default Home;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-11T14:40:05.904Z
+                at 2023-04-17T12:30:15.097Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

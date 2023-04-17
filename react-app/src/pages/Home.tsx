@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearch } from "../store/actions/actionCreators";
+import { setSearch, setCharList } from "../store/actions/actionCreators";
 import { IChar } from "../types/type";
 import Card from "../components/card/card";
 import Input from "../components/input/input";
@@ -8,31 +8,32 @@ import "./page.scss";
 import { State } from "../store/utils";
 
 function Home() {
-  const [charList, setCharList] = useState<IChar[]>([]);
   const [loading, setLoading] = useState(true);
-
   const dispatch = useDispatch();
-  const { search } = useSelector((state: State) => state.home);
+  const { search, charList } = useSelector((state: State) => state.home);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearch(e.target.value));
   };
 
-  function getData(url: string) {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setCharList(data.results);
-        setLoading(false);
-      });
-  }
+  const getData = useCallback(
+    (url: string) => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          dispatch(setCharList(data.results));
+          setLoading(false);
+        });
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
-    getData(`https://rickandmortyapi.com/api/character/?name=`);
-  }, [search]);
+    getData(`https://rickandmortyapi.com/api/character/?name=${search || ""}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleClick = () => {
-    // dispatch(setSearch(""));
     getData(`https://rickandmortyapi.com/api/character/?name=${search || ""}`);
   };
 

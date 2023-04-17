@@ -11,7 +11,7 @@ export const setLoading = (loading: boolean) => ({
   payload: loading,
 });
 
-export const setData = (data: IChar[]) => ({
+export const setCharList = (data: IChar[]) => ({
   type: Actions.SET_CHARLIST,
   payload: data,
 });
