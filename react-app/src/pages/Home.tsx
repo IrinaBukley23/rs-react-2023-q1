@@ -11,7 +11,6 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const { search, charList } = useSelector((state: State) => state.home);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearch(e.target.value));
   };

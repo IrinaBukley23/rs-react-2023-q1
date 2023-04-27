@@ -1,4 +1,4 @@
-import { IChar } from "types/type";
+import { IChar } from "../../types/type";
 import { HomeState, initialHome } from "../utils";
 import { Actions } from "../actions/actionTypes";
 

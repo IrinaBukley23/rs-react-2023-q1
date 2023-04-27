@@ -8,7 +8,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -16,15 +15,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true,
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./src",
   },
-  "include": [
-    "src/**/*", 
-    ".eslintrc.json", 
-    "vite.config.ts", 
-    "styled.d.ts"
-  ],
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
